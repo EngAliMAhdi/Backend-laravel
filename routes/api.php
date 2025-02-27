@@ -40,17 +40,18 @@ Route::middleware('auth:sanctum')->post('/logout', function (Request $request) {
 });
 
 Route::middleware('auth:sanctum')->group(function () {
-    Route::apiResource('sessions', SessionTypeController::class);
-    Route::get('sessions/{id}/showall', [SessionTypeController::class, 'showall']);
 
-    Route::apiResource('setting', SettingController::class);
-    Route::apiResource('delivery', DeliveryController::class);
-    Route::apiResource('placement', PlacementController::class);
-    Route::apiResource('food', FoodController::class);
-    Route::apiResource('position', PositionController::class);
-    Route::apiResource('season', SeasonController::class);
-    Route::apiResource('maintenance', MaintenanceController::class);
 });
+Route::apiResource('sessions', SessionTypeController::class);
+Route::get('sessions/{id}/showall', [SessionTypeController::class, 'showall']);
+
+Route::apiResource('setting', SettingController::class);
+Route::apiResource('delivery', DeliveryController::class);
+Route::apiResource('placement', PlacementController::class);
+Route::apiResource('food', FoodController::class);
+Route::apiResource('position', PositionController::class);
+Route::apiResource('season', SeasonController::class);
+Route::apiResource('maintenance', MaintenanceController::class);
 Route::get('/quran/{chapter}', [QuranController::class, 'getSurah']);
 Route::get('/quran/{chapter}/{verse}', [QuranController::class, 'getVerse']);
 Route::get('/quran/{chapter}/{start}/{end}/char-count', [QuranController::class, 'countCharsBetweenVerses']);
